@@ -13,7 +13,7 @@ import { Image } from '@app/core/models/image.model';
 })
 export class ProductsComponent implements OnInit {
   selectedFile: File = null;
-  selectedProduct = new Product(null, '', '', '', '', '');
+  selectedProduct = new Product(0, '', '', '', '', '');
   mode = 'new';
   id: number;
   imageUrl = 'default.png';
@@ -27,11 +27,17 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => (this.id = + params['id']));
-    console.log(this.id);
-    this.mode = this.id ? 'update' : 'new';
-    this.productService.getProductsById(this.id).subscribe((data: Product) => {
-      this.selectedProduct = data;
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.id = params['id'];
+        console.log(this.id);
+        this.productService.getProductsById(this.id).subscribe((data: Product) => {
+          this.selectedProduct = data;
+        });
+        this.mode = 'update';
+      } else {
+        this.mode = 'new';
+      }
     });
   }
 

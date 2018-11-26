@@ -77,7 +77,7 @@
       "title": "Test",
       "description": "test",
       "price": 1,
-      "image": "1",
+      "image": "img1.png",
       "quantity": "1"
     },
     {
@@ -95,6 +95,14 @@
       "price": 11,
       "quantity": "1",
       "image": "default.png"
+    },
+    {
+      "id": 27,
+      "title": "Test",
+      "description": "test",
+      "price": 11,
+      "image": "img9.png",
+      "quantity": "11"
     }
   ],
   "images": [
