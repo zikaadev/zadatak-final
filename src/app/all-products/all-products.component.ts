@@ -23,8 +23,6 @@ export class AllProductsComponent implements OnInit {
   mode = 'update';
   param = { value: 'world' };
   filteredProducts: Product[];
-  // isLoaded = false;
-  // modalState = false;
 
   _searchText: string;
   get searchText(): string {
@@ -44,12 +42,6 @@ export class AllProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.notificationsService.success('Success', 'Data loaded', {
-      timeOut: 3000,
-      showProgressBar: true,
-      pauseOnHover: true,
-      clickToClose: true
-    });
   }
 
   getProducts() {
@@ -65,14 +57,14 @@ export class AllProductsComponent implements OnInit {
     this.selectedProduct = product;
     const modalRef = this.modalService.open(DeleteModalComponent);
     modalRef.componentInstance.selectedProduct = product;
+    modalRef.componentInstance.deleteProduct.subscribe(
+      (res: any) => this.delete());
   }
 
-  confirmDelete(confirmed: boolean) { }
-
   delete() {
-    this.productService.deleteProduct(this.selectedProduct.id).subscribe((res: any) => {
-      this.productService.getAllProducts().subscribe();
-    });
+    this.productService.deleteProduct(this.selectedProduct.id).subscribe(
+      res => this.getProducts()
+    );
   }
 
   performFilter(filterBy: string): Product[] {

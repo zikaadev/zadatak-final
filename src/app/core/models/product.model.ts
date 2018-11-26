@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { findLocaleData } from '@angular/common/src/i18n/locale_data_api';
-import { Image } from './image.model';
 
 @Injectable()
 export class Product {
@@ -11,12 +10,12 @@ export class Product {
   image: string;
   quantity: string;
 
-  constructor(id: number, title: string, description: string, price: string, image: string, quantity: string) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.price = price;
-    this.image = this.image;
-    this.quantity = quantity;
-  }
+  // constructor(id: number, title: string, description: string, price: string, image: string, quantity: string) {
+  //   this.id = id;
+  //   this.title = title;
+  //   this.description = description;
+  //   this.price = price;
+  //   this.image = this.image;
+  //   this.quantity = quantity;
+  // }
 }

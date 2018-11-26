@@ -11,29 +11,16 @@ import { ProductService } from '@app/all-products/product.service';
 export class DeleteModalComponent {
   @Input() selectedProduct: Product;
   param = { value: 'world' };
-  confirmDelete = new EventEmitter<boolean>();
-  modalState = false;
+  @Output() deleteProduct = new EventEmitter<boolean>();
 
   constructor(public activeModal: NgbActiveModal, private productService: ProductService) { }
 
-  setConfirm() {
+  productDeleted(confirm: boolean) {
+    this.deleteProduct.emit(true);
     this.activeModal.close();
-    // this.confirmDelete.emit(true);
   }
 
   setCancel() {
     this.activeModal.close();
-  }
-
-  isIn(): boolean {
-    return this.modalState;
-  }
-
-  delete(selectedProduct: Product) {
-    this.selectedProduct = selectedProduct;
-    this.productService.deleteProduct(this.selectedProduct.id).subscribe((res: any) => {
-      this.productService.getAllProducts().subscribe();
-      this.activeModal.dismiss();
-    });
   }
 }

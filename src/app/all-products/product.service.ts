@@ -34,8 +34,8 @@ export class ProductService {
   getAllProducts(): Observable<Product[]> {
     return this.http.get(this.path).pipe(
       map((data: any) => {
+        // this.notificationsService.info('Info', 'Products loaded', this.notificationsOptions);
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -44,8 +44,8 @@ export class ProductService {
   getProductsById(id: number): Observable<Product> {
     return this.http.get(this.path + '/' + id).pipe(
       map((data: any) => {
+        // this.notificationsService.success('Success', 'Product found', this.notificationsOptions);
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -54,8 +54,8 @@ export class ProductService {
   deleteProduct(id: number): Observable<Product> {
     return this.http.delete(this.path + '/' + id).pipe(
       map((data: any) => {
+        this.notificationsService.success('Success', 'Product deleted', this.notificationsOptions);
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -64,8 +64,8 @@ export class ProductService {
   addProduct(product: Product): Observable<Product> {
     return this.http.post(this.path, product, this.options).pipe(
       map((data: any) => {
+        this.notificationsService.success('Success', 'Product added', this.notificationsOptions);
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -74,8 +74,8 @@ export class ProductService {
   updateProduct(product: Product): Observable<Product> {
     return this.http.put(this.path + '/' + product.id, product, this.options).pipe(
       map((data: any) => {
+        this.notificationsService.success('Success', 'Product updated', this.notificationsOptions);
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
         // setTimeout(() => {
         //   this.isLoaded = true;
         // }, 200);

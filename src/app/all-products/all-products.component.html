@@ -5,7 +5,7 @@
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
         <button class="btn btn-primary left-space" routerLink="/products/new">Add Product</button> <br /><br />
-        <table>
+        <table (onConfirmDelete)="delete()">
           <thead>
             <tr>
               <th>{{ 'products.id' | translate: param }}</th>
@@ -36,8 +36,7 @@
               </td>
               <td>
                 <a>
-                  <i style="font-size:16px" class="fa fa-remove action-item" title="{{'app.delete' | translate:param}}"
-                    (click)="openDeleteModal(product)">&#xf00d;</i>
+                  <i style="font-size:16px" class="fa fa-remove action-item" title="{{'app.delete' | translate:param}}" (click)="openDeleteModal(product)" (productDelete)="delete($event)">&#xf00d;</i>
                 </a>
               </td>
             </tr>

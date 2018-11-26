@@ -6,7 +6,7 @@
 <div class="modal-body center">
   <p>Are you sure you want to delete product?</p>
   <button class="btn btn-outline-danger" (click)="activeModal.dismiss()">Cancel</button>
-  <button class="btn btn-outline-success" (click)="delete(selectedProduct)">Delete</button>
+  <button class="btn btn-outline-success" (click)="productDeleted($event)">Delete</button>
   <!-- setConfirm() -->
 </div>
 <div class="modal-footer"><button type="button" class="btn btn-outline-dark" (click)="setCancel()">Close</button></div>
