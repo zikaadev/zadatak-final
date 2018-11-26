@@ -40,12 +40,7 @@ export class AllProductsComponent implements OnInit {
     private modalService: NgbModal,
     private productService: ProductService,
     private router: Router,
-    private notificationsService: NotificationsService
-  ) {
-    // if (this.isLoaded === false) {
-    //   this.getProducts();
-    // }
-  }
+    private notificationsService: NotificationsService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -55,7 +50,6 @@ export class AllProductsComponent implements OnInit {
       pauseOnHover: true,
       clickToClose: true
     });
-    // this.isLoaded = true;
   }
 
   getProducts() {
@@ -65,21 +59,15 @@ export class AllProductsComponent implements OnInit {
   openProductModal(product: Product) {
     const modalRef = this.modalService.open(ProductsModalComponent);
     modalRef.componentInstance.selectedProduct = product;
-    // this.getProducts();
   }
 
   openDeleteModal(product: Product) {
     this.selectedProduct = product;
     const modalRef = this.modalService.open(DeleteModalComponent);
     modalRef.componentInstance.selectedProduct = product;
-    // this.modalState = true;
   }
 
-  confirmDelete(confirmed: boolean) {
-    // if (confirmed) {
-    //   this.delete();
-    // } else { this.modalState = false; }
-  }
+  confirmDelete(confirmed: boolean) { }
 
   delete() {
     this.productService.deleteProduct(this.selectedProduct.id).subscribe((res: any) => {

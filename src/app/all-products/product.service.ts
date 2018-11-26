@@ -18,9 +18,9 @@ export class ProductService {
       'Access-Control-Allow-Origin': '*'
     })
   };
-  public notificationOptions = {
+  public notificationsOptions = {
     position: ['bottom', 'right'],
-    timeOut: 5000,
+    timeOut: 3000,
     lastOnBottom: true
   };
   loader: any;
@@ -29,18 +29,13 @@ export class ProductService {
     private http: HttpClient,
     private persistenceService: PersistenceService,
     private notificationsService: NotificationsService
-  ) {}
+  ) { }
 
   getAllProducts(): Observable<Product[]> {
     return this.http.get(this.path).pipe(
       map((data: any) => {
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', {
-          timeOut: 3000,
-          showProgressBar: true,
-          pauseOnHover: true,
-          clickToClose: true
-        });
+        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -50,12 +45,7 @@ export class ProductService {
     return this.http.get(this.path + '/' + id).pipe(
       map((data: any) => {
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', {
-          timeOut: 3000,
-          showProgressBar: true,
-          pauseOnHover: true,
-          clickToClose: true
-        });
+        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -65,12 +55,7 @@ export class ProductService {
     return this.http.delete(this.path + '/' + id).pipe(
       map((data: any) => {
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', {
-          timeOut: 3000,
-          showProgressBar: true,
-          pauseOnHover: true,
-          clickToClose: true
-        });
+        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -80,12 +65,7 @@ export class ProductService {
     return this.http.post(this.path, product, this.options).pipe(
       map((data: any) => {
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', {
-          timeOut: 3000,
-          showProgressBar: true,
-          pauseOnHover: true,
-          clickToClose: true
-        });
+        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
@@ -95,15 +75,20 @@ export class ProductService {
     return this.http.put(this.path + '/' + product.id, product, this.options).pipe(
       map((data: any) => {
         return data as any;
-        this.notificationsService.success('Success', 'product deleted', {
-          timeOut: 3000,
-          showProgressBar: true,
-          pauseOnHover: true,
-          clickToClose: true
-        });
+        this.notificationsService.success('Success', 'product deleted', this.notificationsOptions);
         // setTimeout(() => {
         //   this.isLoaded = true;
         // }, 200);
+      }),
+      catchError((err: any) => this.persistenceService.handleError(err))
+    );
+  }
+
+  uploadImage(file: File) {
+    return this.http.post('http://localhost:3000/images', file).pipe(
+      map((res) => {
+        return res as any;
+        this.notificationsService.success('Success', 'Image uploaded', this.notificationsOptions);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );

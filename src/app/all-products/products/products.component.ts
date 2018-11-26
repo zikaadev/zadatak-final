@@ -4,6 +4,7 @@ import { Product } from '@app/core/models/product.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Image } from '@app/core/models/image.model';
 
 @Component({
   selector: 'app-products',
@@ -12,10 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   selectedFile: File = null;
-  selectedProduct = new Product(null, '', '', null, '', null);
+  selectedProduct = new Product(null, '', '', '', '', '');
   mode = 'new';
   id: number;
-  imageUrl = 'assets/images/default.png';
+  imageUrl = 'default.png';
   fileToUpload: File;
 
   constructor(
@@ -23,55 +24,43 @@ export class ProductsComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
-    console.log(this.mode);
-    this.route.params.subscribe(params => (this.id = +params['id']));
+    this.route.params.subscribe(params => (this.id = + params['id']));
+    console.log(this.id);
     this.mode = this.id ? 'update' : 'new';
     this.productService.getProductsById(this.id).subscribe((data: Product) => {
       this.selectedProduct = data;
-      this.imageUrl = this.selectedProduct.image.get.name;
-      console.log('IMAGE URL: ' + this.imageUrl);
     });
   }
 
   onFileSelected(event: any) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
+    this.selectedProduct.image = this.getImageName(this.selectedFile);
     console.log(this.selectedFile);
-    // const reader = new FileReader();
-    // reader.onload = (event: any) => {
-    //   this.imageUrl = event.target.result;
-    // }
-    // reader.readAsDataURL(this.selectedFile);
   }
 
   onUpload() {
-    const fd = new FormData();
-    this.getImageName(this.selectedFile.name);
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http
-      .post('http://localhost:3000/products', fd, {
-        reportProgress: true,
-        observe: 'events'
-      })
-      .subscribe((event: any) => {
-        console.log(event);
-      });
+    this.productService.uploadImage(this.selectedFile)
+      .subscribe((res: any) => console.log(res));
   }
 
   save() {
-    // this.setMode('mode');mode: string
     if (this.mode === 'new') {
+      this.selectedProduct.image = this.selectedProduct.image ?
+        this.selectedProduct.image : this.getImageName(this.selectedFile);
       this.productService.addProduct(this.selectedProduct).subscribe((res: any) => {
-        console.log('Product added!' + this.selectedProduct);
+        console.log('Product added!');
         this.productService.getAllProducts().subscribe();
         this.router.navigate(['/all-products']);
       });
     } else {
+      this.selectedProduct.image = this.selectedProduct.image ?
+        this.selectedProduct.image : this.getImageName(this.selectedFile);
       this.productService.updateProduct(this.selectedProduct).subscribe((res: any) => {
-        console.log('Product updated!' + this.selectedProduct);
+        console.log('Product updated!');
         this.productService.getAllProducts().subscribe();
         this.router.navigate(['/all-products']);
       });
@@ -79,15 +68,13 @@ export class ProductsComponent implements OnInit {
     this.setMode('new');
   }
 
-  getImageName(imageName: string) {
-    const name = imageName.split('"');
-    console.log(name);
-    return name;
+  getImageName(file: File) {
+    if (file) {
+      return this.selectedFile.name;
+    } else {
+      return this.imageUrl;
+    }
   }
-  // updateProduct(product: Product) {
-  //   this.selectedProduct = product;
-  //   this.setMode('update');
-  // }
 
   cancel() {
     this.router.navigate(['/all-products']);

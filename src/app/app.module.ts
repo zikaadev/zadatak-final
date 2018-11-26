@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,6 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     // ShellModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     HomeModule,
     AboutModule,
     LoginModule,
@@ -56,4 +59,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   bootstrap: [AppComponent],
   exports: [TranslateModule]
 })
-export class AppModule {}
+export class AppModule { }

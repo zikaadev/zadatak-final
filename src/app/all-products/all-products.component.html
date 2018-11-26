@@ -4,7 +4,7 @@
       <div>
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
-        <button class="btn btn-primary left-space" routerLink="/products">Add Product</button> <br /><br />
+        <button class="btn btn-primary left-space" routerLink="/products/new">Add Product</button> <br /><br />
         <table>
           <thead>
             <tr>
@@ -23,8 +23,7 @@
               <td>{{ product.id }}</td>
               <td style="text-align:left;">
                 <a style="cursor: pointer;" title="Click to view details" (click)="openProductModal(product)">
-                  <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a
-                >
+                  <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a>
               </td>
               <td>{{ product.description }}</td>
               <td>{{ product.price | currency: 'EUR':'symbol':'1.2-2' }}</td>
@@ -32,29 +31,19 @@
               <td>{{ product.quantity }}</td>
               <td>
                 <a>
-                  <i
-                    class="fa fa-edit action-item"
-                    title="{{'app.edit' | translate:param}}"
-                    (click)="setActiveProduct(product)"
-                  ></i>
+                  <i class="fa fa-edit action-item" title="{{'app.edit' | translate:param}}" (click)="setActiveProduct(product)"></i>
                 </a>
               </td>
               <td>
                 <a>
-                  <i
-                    style="font-size:16px"
-                    class="fa fa-remove action-item"
-                    title="{{'app.delete' | translate:param}}"
-                    (click)="openDeleteModal(product)"
-                    >&#xf00d;</i
-                  >
+                  <i style="font-size:16px" class="fa fa-remove action-item" title="{{'app.delete' | translate:param}}"
+                    (click)="openDeleteModal(product)">&#xf00d;</i>
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <!-- <delete-modal (confirmDelete)="confirmDelete($event)" [modalState]="modalState"></delete-modal> -->
     </div>
   </div>
 </div>

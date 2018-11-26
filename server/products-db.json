@@ -45,7 +45,7 @@
       "title": "Test",
       "description": "test",
       "price": 22,
-      "image": "img1.png",
+      "image": "1.jpg",
       "quantity": "22"
     },
     {
@@ -53,8 +53,7 @@
       "title": "Test",
       "description": "test",
       "price": 1,
-      "quantity": "2",
-      "image": "img3.png"
+      "quantity": "2"
     },
     {
       "id": 22,
@@ -69,83 +68,15 @@
       "title": "Test",
       "description": "test",
       "price": 22,
-      "quantity": "2",
-      "image": "img5.png"
+      "quantity": "2"
     },
     {
       "id": 24,
       "title": "Test",
       "description": "test",
       "price": 1,
-      "image": "1",
+      "image": {},
       "quantity": "1"
-    },
-    {
-      "id": 25,
-      "title": "Test",
-      "description": "test",
-      "price": 33,
-      "image": "default.png",
-      "quantity": "3"
-    },
-    {
-      "id": 26,
-      "title": "Igor",
-      "description": "test",
-      "price": 11,
-      "quantity": "1",
-      "image": "default.png"
-    }
-  ],
-  "images": [
-    {
-      "id": 2,
-      "image": "img2.png"
-    },
-    {
-      "id": 4,
-      "image": "img4.png"
-    },
-    {
-      "id": 8,
-      "image": "img8.png"
-    },
-    {
-      "id": 10,
-      "image": "img10.png"
-    },
-    {
-      "id": 15,
-      "image": "img1.png"
-    },
-    {
-      "id": 16,
-      "image": "1.jpg"
-    },
-    {
-      "id": 18,
-      "image": "img2.png"
-    },
-    {
-      "id": 22,
-      "image": "img2.png"
-    },
-    {
-      "id": 23,
-      "image": "img2.png"
-    },
-    {
-      "id": 24,
-      "image": "img2.png"
-    },
-    {
-      "id": 25
-    },
-    {
-      "id": 26
-    },
-    {
-      "id": 27
     }
   ]
 }
