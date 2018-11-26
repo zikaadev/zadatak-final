@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "title": "Amblem",
+      "description": "description2",
+      "price": 23,
+      "image": "img2.png",
+      "quantity": "7"
+    },
+    {
+      "id": 4,
+      "title": "Pirate",
+      "description": "description4",
+      "price": 4,
+      "image": "img4.png",
+      "quantity": "2"
+    },
+    {
+      "id": 8,
+      "title": "Pill",
+      "description": "description8",
+      "price": 29,
+      "image": "img8.png",
+      "quantity": "58"
+    },
+    {
+      "id": 10,
+      "title": "Trumpet",
+      "description": "description10",
+      "price": 77,
+      "image": "img10.png",
+      "quantity": "7"
+    },
+    {
+      "id": 15,
+      "title": "Igor",
+      "description": "Pera",
+      "price": "1000000",
+      "quantity": "2",
+      "image": "C:\\fakepath\\bank.png"
+    },
+    {
+      "id": 16,
+      "title": "Test",
+      "description": "test",
+      "price": 22,
+      "image": "C:\\wamp64\\www\\ivana_php\\t1\\img\\bank.png",
+      "quantity": "22"
+    }
+  ]
+}

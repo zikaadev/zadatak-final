@@ -1,0 +1,23 @@
+{
+  "demo": {
+    "greeting": "Hello {{name}}!",
+    "title": "ngx-translate example"
+  },
+  "pageTitle": "TRAINING EXERCISE",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.products": "Products",
+  "nav.administration": "Administration",
+  "nav.selectLanguage": "Select language",
+  "nav.german": "German",
+  "nav.english": "English",
+  "nav.spanish": "Spanish",
+  "products.id": "Id",
+  "products.title": "Title",
+  "products.description": "Description",
+  "products.price": "Price",
+  "products.image": "Image",
+  "products.quantity": "Quantity",
+  "products.search": "Search items",
+  "products.searchParam": "Start typing"
+}

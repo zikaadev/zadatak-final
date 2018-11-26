@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div id="allProducts" class="col-sm-6 text-left">
+      <div>
+        {{ 'products.search' | translate: param }}:
+        <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
+        <button class="btn btn-primary left-space" routerLink="/products">Add Product</button> <br /><br />
+        <table>
+          <thead>
+            <tr>
+              <th>{{ 'products.id' | translate: param }}</th>
+              <th>{{ 'products.title' | translate: param }}</th>
+              <th>{{ 'products.description' | translate: param }}</th>
+              <th>{{ 'products.price' | translate: param }}</th>
+              <th>{{ 'products.image' | translate: param }}</th>
+              <th>{{ 'products.quantity' | translate: param }}</th>
+              <th><i class="fa fa-edit"></i></th>
+              <th><i class="fa fa-remove" style="font-size:16px">&#xf00d;</i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of (products | findByName: searchText)">
+              <td>{{ product.id }}</td>
+              <td style="text-align:left;">
+                <a style="cursor: pointer;" title="Click to view details" (click)="openProductModal(product)">
+                  <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a
+                >
+              </td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price | currency: 'EUR':'symbol':'1.2-2' }}</td>
+              <td><img src="assets/images/{{product.image}}" height="50" /></td>
+              <td>{{ product.quantity }}</td>
+              <td>
+                <a>
+                  <i
+                    class="fa fa-edit action-item"
+                    title="{{'app.edit' | translate:param}}"
+                    (click)="setActiveProduct(product)"
+                  ></i>
+                </a>
+              </td>
+              <td>
+                <a>
+                  <i
+                    style="font-size:16px"
+                    class="fa fa-remove action-item"
+                    title="{{'app.delete' | translate:param}}"
+                    (click)="openDeleteModal(product)"
+                    >&#xf00d;</i
+                  >
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- <delete-modal (confirmDelete)="confirmDelete($event)" [modalState]="modalState"></delete-modal> -->
+    </div>
+  </div>
+</div>
+<simple-notifications></simple-notifications>

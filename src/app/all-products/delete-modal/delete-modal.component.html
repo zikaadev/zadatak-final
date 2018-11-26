@@ -1,0 +1,13 @@
+<div class="modal-header" hidden="!isIn()">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body center">
+  <p>Are you sure you want to delete product?</p>
+  <button class="btn btn-outline-dark" (click)="activeModal.dismiss()">Cancel</button>
+  <button class="btn btn-outline-dark" (click)="delete(selectedProduct)">Delete</button>
+  <!-- setConfirm() -->
+</div>
+<div class="modal-footer"><button type="button" class="btn btn-outline-dark" (click)="setCancel()">Close</button></div>
+<simple-notifications></simple-notifications>

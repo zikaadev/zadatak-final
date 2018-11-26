@@ -1,0 +1,69 @@
+<div id="productsForm">
+  <!--
+    <h3 *ngIf="mode === 'new'">Add product</h3>
+    <h3 *ngIf="mode === 'update'">Update product</h3>
+    <form #myform="ngForm" novalidate>
+      <div class="form-group">
+  -->
+  <!--
+    <label for="selectedProduct.title" class="control-label">Title</label>
+    <input type="text" class="form-control" required [(ngModel)]="selectedProduct.title" name="title"
+      pattern="[A-Za-z0-9]{3,15}" minlength="3" maxlength="15" #title="ngModel">
+  -->
+  <!--
+    <div class="alert alert-danger" *ngIf="selectedProduct.title.touched && selectedProduct.title.invalid">
+      <div *ngIf="selectedProduct.title.serrors.required">Title is required</div>
+      <div *ngIf="selectedProduct.title.errors.minlength">Title should be at least
+        {{title.errors.minlength.requiredLength}} characters</div>
+      <div *ngIf="selectedProduct.title.errors.pattern">Title should match the pattern</div>
+    </div>
+  -->
+  <!--
+    </div>
+    <div class="form-group">
+      <label for="selectedProduct.description">Description</label>
+      <input type="text" class="form-control" required [(ngModel)]="selectedProduct.description" name="description"
+        #description>
+  -->
+  <!--
+    <div class="alert alert-danger" *ngIf="selectedProduct.description.touched && selectedProduct.description.invalid">
+      <div *ngIf="selectedProduct.description.errors.required">Description is required</div>
+    </div>
+  -->
+  <!--
+    </div>
+    <div class="form-group">
+      <label for="selectedProduct.price">Price</label>
+      <input type="number" class="form-control" required [(ngModel)]="selectedProduct.price" name="price" #price>
+  -->
+  <!--
+    <div class="alert alert-danger" *ngIf="selectedProduct.price.touched && selectedProduct.price.invalid">
+      <div *ngIf="selectedProduct.price.errors.required">Price is required</div>
+      <div *ngIf="selectedProduct.price.errors.invalid">Price can't be negative</div>
+    </div>
+  -->
+  <!--
+    </div>
+    <div class="form-group">
+      <label for="selectedProduct.quantity">Quantity</label>
+      <input type="number" class="form-control" required min="0" [(ngModel)]="selectedProduct.quantity" name="quantity"
+        #quantity>
+  -->
+  <!--
+    <div class="alert alert-danger" *ngIf="selectedProduct.quantity.touched && selectedProduct.quantity.invalid">
+      <div *ngIf="selectedProduct.quantity.errors.required">Quantity is required</div>
+      <div *ngIf="selectedProduct.quantity.errors.invalid">Quantity can't be negative</div>
+    </div>
+  -->
+  <!--
+    </div>
+      <div class="form-group">
+        <input type="hidden" [(ngModel)]="selectedProduct.image" name="image" value="product.png">
+        <button class="btn btn-primary" type="submit" (ngSubmit)="save(mode)" [disabled]="myform.invalid">
+          <span *ngIf="mode == 'new'">Save</span>
+          <span *ngIf="mode === 'update'">Update</span>
+        </button>
+      </div>
+    </form>
+  -->
+</div>

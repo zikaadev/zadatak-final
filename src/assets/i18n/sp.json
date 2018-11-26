@@ -1,0 +1,24 @@
+{
+    "demo": {
+        "greeting": "Hello {{name}}!",
+        "title": "ngx-translate example"
+    },
+    "pageTitle": "Ejercicio de entrenamiento",
+    "home.title": "Casa",
+    "nav.home": "Casa",
+    "nav.about": "Sobre nosotros",
+    "nav.products": "Productos",
+    "nav.administration": "Administración",
+    "nav.selectLanguage": "Selecionar Lingua",
+    "nav.german": "Alemán",
+    "nav.english": "Inglés",
+    "nav.spanish": "Español",
+    "products.id": "Id",
+    "products.title": "Título",
+    "products.description": "Descripción",
+    "products.price": "Precio",
+    "products.image": "Imagen",
+    "products.quantity": "Cantidad",
+    "products.search": "Elementos de búsqueda",
+    "products.searchParam": "comience a escribir"
+}
