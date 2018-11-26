@@ -14,7 +14,7 @@ export class DeleteModalComponent {
   confirmDelete = new EventEmitter<boolean>();
   modalState = false;
 
-  constructor(public activeModal: NgbActiveModal, private productService: ProductService) {}
+  constructor(public activeModal: NgbActiveModal, private productService: ProductService) { }
 
   setConfirm() {
     this.activeModal.close();
