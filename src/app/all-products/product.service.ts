@@ -24,11 +24,11 @@ export class ProductService {
     timeOut: 3000,
     lastOnBottom: true
   };
-  success = this.translateService.get('notif.success');
-  deleted = this.translateService.get('notif.deleted');
-  updated = this.translateService.get('notif.updated');
-  added = this.translateService.get('notif.added');
-  uploaded = this.translateService.get('notif.uploaded');
+  success: any = this.translateService.get('notif.success');
+  deleted: any = this.translateService.get('notif.deleted');
+  updated: any = this.translateService.get('notif.updated');
+  added: any = this.translateService.get('notif.added');
+  uploaded: any = this.translateService.get('notif.uploaded');
 
   constructor(
     private http: HttpClient,
@@ -59,7 +59,7 @@ export class ProductService {
   deleteProduct(id: number): Observable<Product> {
     return this.http.delete(this.path + '/' + id).pipe(
       map((data: any) => {
-        this.notificationsService.success(this.success, this.deleted, this.notificationsOptions);
+        this.notificationsService.success(this.success.value, this.deleted.value, this.notificationsOptions);
         return data as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
@@ -69,7 +69,7 @@ export class ProductService {
   addProduct(product: Product): Observable<Product> {
     return this.http.post(this.path, product, this.options).pipe(
       map((data: any) => {
-        this.notificationsService.success(this.success, this.added, this.notificationsOptions);
+        this.notificationsService.success(this.success.value, this.added.value, this.notificationsOptions);
         return data as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
@@ -77,10 +77,9 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    console.log(this.updated);
     return this.http.put(this.path + '/' + product.id, product, this.options).pipe(
       map((data: any) => {
-        this.notificationsService.success(this.success, this.updated, this.notificationsOptions);
+        this.notificationsService.success(this.success.value, this.updated.value, this.notificationsOptions);
         return data as any;
         // setTimeout(() => {
         //   this.isLoaded = true;
@@ -93,7 +92,7 @@ export class ProductService {
   uploadImage(file: File) {
     return this.http.post('http://localhost:3000/images', file).pipe(
       map((res) => {
-        this.notificationsService.success(this.success, this.uploaded, this.notificationsOptions);
+        this.notificationsService.success(this.success.value, this.uploaded.value, this.notificationsOptions);
         return res as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
