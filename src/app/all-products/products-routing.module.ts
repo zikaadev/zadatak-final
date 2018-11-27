@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { Route, extract, AuthenticationGuard } from '@app/core';
 import { AllProductsComponent } from './all-products.component';
 import { ProductsComponent } from '@app/all-products/products/products.component';
-import { ProductFormComponent } from '@app/all-products/product-form/product-form.component';
 
 const routes: Routes = [
   Route.withShell([

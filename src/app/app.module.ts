@@ -19,7 +19,7 @@ import { PipesModule } from './core/pipes/pipes.module';
 import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifications';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http); // , './assets/i18n/', '.json'
 }
 
 @NgModule({
@@ -37,14 +37,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     CoreModule,
     SharedModule,
-    // ShellModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HomeModule,
     AboutModule,
     LoginModule,
     ProductsModule,
-    TranslateModule.forRoot(),
     CoreModule,
     ProductsModule,
     LoginModule,

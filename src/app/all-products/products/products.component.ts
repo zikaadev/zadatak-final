@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
   id: number;
   imageUrl = 'default.png';
   fileToUpload: File;
+  param = { value: 'world' };
 
   constructor(
     private productService: ProductService,

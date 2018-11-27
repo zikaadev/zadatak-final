@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div id="allProducts" class="col-sm-6 text-left">
+    <div id="allProducts" class="col-xs-6 text-left">
       <div>
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
-        <button class="btn btn-primary left-space" routerLink="/products/new">Add Product</button> <br /><br />
+        <button class="btn btn-primary left-space" routerLink="/products/new">{{'app.add.product' | translate: param}}</button> <br /><br />
         <table (onConfirmDelete)="delete()">
           <thead>
             <tr>
@@ -22,7 +22,7 @@
             <tr *ngFor="let product of (products | findByName: searchText)">
               <td>{{ product.id }}</td>
               <td style="text-align:left;">
-                <a style="cursor: pointer;" title="Click to view details" (click)="openProductModal(product)">
+                <a style="cursor: pointer;" title="{{'app.view' | translate: param}}" (click)="openProductModal(product)">
                   <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a>
               </td>
               <td>{{ product.description }}</td>

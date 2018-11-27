@@ -1,9 +1,9 @@
-<div id="productsForm" class="container col-md-4 col-md-offset-4">
-  <h3 *ngIf="mode === 'new'">Add product</h3>
-  <h3 *ngIf="mode === 'update'">Update product</h3>
+<div id="productsForm" class="container col-md-6 col-md-offset-3">
+  <h3 *ngIf="mode === 'new'">{{ 'products.add' | translate: param }}</h3>
+  <h3 *ngIf="mode === 'update'">{{ 'products.update' | translate: param }}</h3>
   <form #productform="ngForm" novalidate>
     <div class="form-group">
-      <label for="selectedProduct.title" class="control-label">Title</label>
+      <label for="selectedProduct.title" class="control-label">{{ 'products.title' | translate: param }}</label>
       <input type="text" class="form-control" required [(ngModel)]="selectedProduct.title" name="title" pattern="[A-Za-z0-9]{3,15}" minlength="3" maxlength="15" #title="ngModel" />
       <!-- <div class="alert alert-danger" *ngIf="selectedProduct.title.touched && selectedProduct.title.invalid">
         <div *ngIf="selectedProduct.title.serrors.required">Title is required</div>
@@ -14,24 +14,24 @@
       </div> -->
     </div>
     <div class="form-group">
-      <label for="selectedProduct.description">Description</label>
+      <label for="selectedProduct.description">{{ 'products.description' | translate: param }}</label>
       <input type="text" class="form-control" required [(ngModel)]="selectedProduct.description" name="description" #description />
       <!-- <div class="alert alert-danger" *ngIf="selectedProduct.description.touched && selectedProduct.description.invalid">
         <div *ngIf="selectedProduct.description.errors.required">Description is required</div>
       </div> -->
     </div>
     <div class="form-group">
-      <label for="selectedProduct.price">Price</label>
-      <input type="number" class="form-control" required min="0" [(ngModel)]="selectedProduct.price" name="price" #price />
-      <!--
-        <div class="alert alert-danger" *ngIf="selectedProduct.price.touched && selectedProduct.price.invalid">
-          <div *ngIf="selectedProduct.price.errors.required">Price is required</div>
-          <div *ngIf="selectedProduct.price.errors.invalid">Price can't be negative</div>
-        </div>
-      -->
+      <label for="selectedProduct.price">{{ 'products.price' | translate: param }}</label>
+      <input type="text" class="form-control" required min="0" [(ngModel)]="selectedProduct.price" name="price" #price />
+
+      <!-- <div class="alert alert-danger" *ngIf="selectedProduct.price.touched && selectedProduct.price.invalid">
+        <div *ngIf="selectedProduct.price.errors.required">Price is required</div>
+        <div *ngIf="selectedProduct.price.errors.invalid">Price can't be negative</div>
+      </div> -->
+
     </div>
     <div class="form-group">
-      <label for="selectedProduct.quantity">Quantity</label>
+      <label for="selectedProduct.quantity">{{ 'products.quantity' | translate: param }}</label>
       <input type="text" class="form-control" required min="0" [(ngModel)]="selectedProduct.quantity" name="quantity" #quantity />
 
       <!-- <div class="alert alert-danger" *ngIf="selectedProduct.quantity.touched && selectedProduct.quantity.invalid">
@@ -41,17 +41,16 @@
 
     </div>
     <div class="form-group">
-      <!-- <img [src]='imageUrl' width="100" height="100"> -->
-      <label for="selectedProduct.image">Image</label><br />
+      <label for="selectedProduct.image">{{ 'products.image' | translate: param }}</label><br />
       <input type="text" [(ngModel)]="selectedProduct.image" name="imageUrl" #imageUrl />
       <input type="file" class="form-control hide" (change)="onFileSelected($event)" name="image" #image />
-      <button class="btn btn-outline-dark" type="button" (click)="image.click()">Select image</button>
-      <button class="btn btn-outline-dark left-space" type="button" (click)="onUpload()">Upload image</button>
+      <button class="btn btn-outline-dark" type="button" (click)="image.click()">{{ 'products.select.image' | translate: param }}</button>
+      <button class="btn btn-outline-dark left-space" type="button" (click)="onUpload()">{{ 'products.upload.image' | translate: param }}</button>
     </div>
     <div class="form-group">
-      <button class="btn btn-outline-dark" type="button" (click)="cancel()">Cancel</button>
+      <button class="btn btn-outline-dark" type="button" (click)="cancel()">{{ 'app.btn.cancel' | translate: param }}</button>
       <button class="btn btn-outline-dark left-space" type="button" (click)="save()" [disabled]="productform.invalid">
-        <span *ngIf="mode === 'new'">Save</span> <span *ngIf="mode === 'update'">Update</span>
+        <span *ngIf="mode === 'new'">{{ 'app.btn.save' | translate: param }}</span> <span *ngIf="mode === 'update'">{{ 'app.btn.update' | translate: param }}</span>
       </button>
     </div>
   </form>
