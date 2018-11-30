@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllProductsComponent } from './all-products/all-products.component';
-import { ProductsComponent } from './all-products/products/products.component';
+import { ProductsComponent } from './products/products.component';
 import { SharedModule } from '../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '@app/core/pipes/pipes.module';

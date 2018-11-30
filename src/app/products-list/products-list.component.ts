@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '@app/administration/all-products/product.service';
 import { Product } from '@app/core/models/product.model';
-
+import { ProductService } from '@app/administration/product.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-// import { ProductsModalComponent } from './products-modal/products-modal.component';
-// import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 

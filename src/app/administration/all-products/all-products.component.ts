@@ -5,7 +5,7 @@ import { ProductsModalComponent } from './products-modal/products-modal.componen
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
-import { ProductService } from './product.service';
+import { ProductService } from '../product.service';
 import { Product } from '@app/core/models/product.model';
 
 @Component({

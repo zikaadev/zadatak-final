@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Product } from '@app/core/models/product.model';
-import { ProductService } from '@app/administration/all-products/product.service';
+// import { ProductService } from '@app/administration/product.service';
 
 @Component({
   selector: 'app-delete-modal',
@@ -13,7 +13,7 @@ export class DeleteModalComponent {
   param = { value: 'world' };
   @Output() deleteProduct = new EventEmitter<boolean>();
 
-  constructor(public activeModal: NgbActiveModal, private productService: ProductService) {}
+  constructor(public activeModal: NgbActiveModal) {}
 
   productDeleted(confirm: boolean) {
     this.deleteProduct.emit(true);

@@ -3,24 +3,24 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { Route, extract, AuthenticationGuard } from '@app/core';
 import { AllProductsComponent } from './all-products/all-products.component';
-import { ProductsComponent } from './all-products/products/products.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   Route.withShell([
     {
-      path: 'products/new',
+      path: 'administration/products/new',
       component: ProductsComponent,
-      data: { title: extract('Products') },
+      data: { title: extract('New Product') },
       canActivate: [AuthenticationGuard]
     },
     {
-      path: 'products/:id',
+      path: 'administration/products/:id',
       component: ProductsComponent,
-      data: { title: extract('Products') },
+      data: { title: extract('Update Product') },
       canActivate: [AuthenticationGuard]
     },
     {
-      path: 'all-products',
+      path: 'asdasda',
       component: AllProductsComponent,
       data: { title: extract('All Products') },
       canActivate: [AuthenticationGuard]

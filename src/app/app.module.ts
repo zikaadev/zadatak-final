@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products-list/products.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PipesModule } from './core/pipes/pipes.module';
-import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifications';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { AdministrationModule } from './administration/administration.module';
 
 export function HttpLoaderFactory(http: HttpClient) {

@@ -6,11 +6,7 @@ import { ProductsListComponent } from './products-list.component';
 
 const routes: Routes = [
   Route.withShell([
-    {
-      path: 'products-list',
-      component: ProductsListComponent,
-      data: { title: extract('Products List') }
-    }
+    { path: 'products-list', component: ProductsListComponent, data: { title: extract('Products List') } }
   ])
 ];
 
