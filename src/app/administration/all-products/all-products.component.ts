@@ -1,16 +1,12 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { ProductService } from '@app/all-products/product.service';
-import { Product } from '@app/core/models/product.model';
-
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsModalComponent } from './products-modal/products-modal.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
-import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
-import { overlayConfigFactory } from 'ngx-modialog';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { ProductService } from './product.service';
+import { Product } from '@app/core/models/product.model';
 
 @Component({
   selector: 'app-all-products',
@@ -38,7 +34,8 @@ export class AllProductsComponent implements OnInit {
     private modalService: NgbModal,
     private productService: ProductService,
     private router: Router,
-    private notificationsService: NotificationsService) { }
+    private notificationsService: NotificationsService
+  ) {}
 
   ngOnInit() {
     this.getProducts();
@@ -57,14 +54,11 @@ export class AllProductsComponent implements OnInit {
     this.selectedProduct = product;
     const modalRef = this.modalService.open(DeleteModalComponent);
     modalRef.componentInstance.selectedProduct = product;
-    modalRef.componentInstance.deleteProduct.subscribe(
-      (res: any) => this.delete());
+    modalRef.componentInstance.deleteProduct.subscribe((res: any) => this.delete());
   }
 
   delete() {
-    this.productService.deleteProduct(this.selectedProduct.id).subscribe(
-      res => this.getProducts()
-    );
+    this.productService.deleteProduct(this.selectedProduct.id).subscribe((res: any) => this.getProducts());
   }
 
   performFilter(filterBy: string): Product[] {

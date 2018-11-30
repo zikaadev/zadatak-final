@@ -7,26 +7,24 @@
 <div class="modal-body">
   <table>
     <tr>
-      <td style="padding-right: 30px;">{{ 'products.id' | translate: param }}</td>
+      <td>{{ 'products.id' | translate: param }}</td>
       <td>{{ selectedProduct.id }}</td>
-      <td rowspan="5">
-        <img src="../../assets/images/{{selectedProduct.image}}" height="200" style="padding: 30px 40px;" />
-      </td>
+      <td rowspan="5"><img src="assets/images/{{selectedProduct.image}}" /></td>
     </tr>
     <tr>
-      <td style="padding-right: 30px;">{{ 'products.title' | translate: param }}</td>
+      <td>{{ 'products.title' | translate: param }}</td>
       <td>{{ selectedProduct.title | uppercase }}</td>
     </tr>
     <tr>
-      <td style="padding-right: 30px;">{{ 'products.description' | translate: param }}</td>
+      <td>{{ 'products.description' | translate: param }}</td>
       <td>{{ selectedProduct.description }}</td>
     </tr>
     <tr>
-      <td style="padding-right: 30px;">{{ 'products.price' | translate: param }}</td>
+      <td>{{ 'products.price' | translate: param }}</td>
       <td>{{ selectedProduct.price | currency: 'EUR':'symbol':'1.2-2' }}</td>
     </tr>
     <tr>
-      <td style="padding-right: 30px;">{{ 'products.quantity' | translate: param }}</td>
+      <td>{{ 'products.quantity' | translate: param }}</td>
       <td>{{ selectedProduct.quantity }}</td>
     </tr>
   </table>

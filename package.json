@@ -38,6 +38,7 @@
     "angular4-simple-notifications": "^0.1.1",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.6",
+    "image-to-base64": "^2.0.1",
     "lodash": "^4.17.10",
     "multer": "^1.4.1",
     "ngx-modialog": "^5.0.1",

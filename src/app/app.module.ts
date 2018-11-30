@@ -13,13 +13,14 @@ import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductsModule } from './all-products/products.module';
+import { ProductsModule } from './products-list/products.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PipesModule } from './core/pipes/pipes.module';
 import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifications';
+import { AdministrationModule } from './administration/administration.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http); // , './assets/i18n/', '.json'
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -43,12 +44,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutModule,
     LoginModule,
     ProductsModule,
-    CoreModule,
-    ProductsModule,
     LoginModule,
     AppRoutingModule,
     PipesModule,
     HttpClientModule,
+    AdministrationModule,
     SimpleNotificationsModule.forRoot(),
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
@@ -57,4 +57,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   bootstrap: [AppComponent],
   exports: [TranslateModule]
 })
-export class AppModule { }
+export class AppModule {}

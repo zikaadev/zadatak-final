@@ -55,57 +55,14 @@
       "quantity": "2",
       "image": "default.png",
       "id": 17
-    }
-  ],
-  "images": [
-    {
-      "id": 2,
-      "image": "img2.png"
     },
     {
-      "id": 4,
-      "image": "img4.png"
-    },
-    {
-      "id": 8,
-      "image": "img8.png"
-    },
-    {
-      "id": 10,
-      "image": "img10.png"
-    },
-    {
-      "id": 15,
-      "image": "img1.png"
-    },
-    {
-      "id": 16,
-      "image": "1.jpg"
-    },
-    {
-      "id": 18,
-      "image": "img2.png"
-    },
-    {
-      "id": 22,
-      "image": "img2.png"
-    },
-    {
-      "id": 23,
-      "image": "img2.png"
-    },
-    {
-      "id": 24,
-      "image": "img2.png"
-    },
-    {
-      "id": 25
-    },
-    {
-      "id": 26
-    },
-    {
-      "id": 27
+      "id": 33,
+      "title": "Igor",
+      "description": "Pera",
+      "price": "5",
+      "image": "default.png",
+      "quantity": "5"
     }
   ]
 }

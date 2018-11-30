@@ -57,5 +57,6 @@
   "notif.deleted": "Product deleted",
   "notif.uploaded": "Image uploaded",
   "notif.error": "Error",
-  "notif.info": "Info"
+  "notif.info": "Info",
+  "title.required": "Title is required"
 }

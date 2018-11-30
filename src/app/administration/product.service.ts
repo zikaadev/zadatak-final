@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class ProductService {
-  path = 'http://localhost:3000/products';
+  path = this.persistenceService.apiUrl;
   options = {
     headers: new HttpHeaders({
       Accept: 'application/json',
@@ -34,12 +34,12 @@ export class ProductService {
     private http: HttpClient,
     private persistenceService: PersistenceService,
     private notificationsService: NotificationsService,
-    private translateService: TranslateService) { }
+    private translateService: TranslateService
+  ) {}
 
   getAllProducts(): Observable<Product[]> {
     return this.http.get(this.path).pipe(
       map((data: any) => {
-        // this.notificationsService.info('Info', 'Products loaded', this.notificationsOptions);
         return data as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
@@ -49,7 +49,6 @@ export class ProductService {
   getProductsById(id: number): Observable<Product> {
     return this.http.get(this.path + '/' + id).pipe(
       map((data: any) => {
-        // this.notificationsService.success('Success', 'Product found', this.notificationsOptions);
         return data as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
@@ -81,21 +80,23 @@ export class ProductService {
       map((data: any) => {
         this.notificationsService.success(this.success.value, this.updated.value, this.notificationsOptions);
         return data as any;
-        // setTimeout(() => {
-        //   this.isLoaded = true;
-        // }, 200);
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
   }
 
   uploadImage(file: File) {
-    return this.http.post('http://localhost:3000/images', file).pipe(
-      map((res) => {
+    return this.http.post(this.path, file).pipe(
+      map((res: any) => {
         this.notificationsService.success(this.success.value, this.uploaded.value, this.notificationsOptions);
         return res as any;
       }),
       catchError((err: any) => this.persistenceService.handleError(err))
     );
   }
+
+  // getImage(imageUrl: string): Observable<File> {
+  // return this.http.get(imageUrl, { responseType: ResponseContentType.Blob })
+  //   .map((res: Response) => res.blob());
+  // }
 }

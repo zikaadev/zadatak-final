@@ -13,6 +13,10 @@ th {
   width: 100px;
 }
 
+a {
+  cursor: pointer;
+}
+
 .action-item {
   cursor: pointer;
   font-size: 18px;
@@ -39,4 +43,12 @@ th {
 
 .left-space {
   margin-left: 120px;
+}
+
+.narrow {
+  width: 40px;
+}
+
+.merged {
+  column-span: 2;
 }

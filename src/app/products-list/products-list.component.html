@@ -4,7 +4,10 @@
       <div>
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
-        <button class="btn btn-primary left-space" routerLink="/products/new">{{'app.add.product' | translate: param}}</button> <br /><br />
+        <button class="btn btn-primary left-space" routerLink="/products/new">
+          {{ 'app.add.product' | translate: param }}
+        </button>
+        <br /><br />
         <table (onConfirmDelete)="delete()">
           <thead>
             <tr>
@@ -14,29 +17,39 @@
               <th>{{ 'products.price' | translate: param }}</th>
               <th>{{ 'products.image' | translate: param }}</th>
               <th>{{ 'products.quantity' | translate: param }}</th>
-              <th><i class="fa fa-edit"></i></th>
-              <th><i class="fa fa-remove" style="font-size:16px">&#xf00d;</i></th>
+              <th class="narrow" colspan="2">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let product of (products | findByName: searchText)">
               <td>{{ product.id }}</td>
-              <td style="text-align:left;">
-                <a style="cursor: pointer;" title="{{'app.view' | translate: param}}" (click)="openProductModal(product)">
-                  <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a>
+              <td>
+                <a title="{{'app.view' | translate: param}}" (click)="openProductModal(product)">
+                  <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a
+                >
               </td>
               <td>{{ product.description }}</td>
               <td>{{ product.price | currency: 'EUR':'symbol':'1.2-2' }}</td>
               <td><img src="assets/images/{{product.image}}" height="50" /></td>
               <td>{{ product.quantity }}</td>
-              <td>
+              <td class="narrow">
                 <a>
-                  <i class="fa fa-edit action-item" title="{{'app.edit' | translate:param}}" (click)="setActiveProduct(product)"></i>
+                  <i
+                    class="fa fa-edit action-item"
+                    title="{{'app.edit' | translate:param}}"
+                    (click)="setActiveProduct(product)"
+                  ></i>
                 </a>
               </td>
-              <td>
+              <td class="narrow">
                 <a>
-                  <i style="font-size:16px" class="fa fa-remove action-item" title="{{'app.delete' | translate:param}}" (click)="openDeleteModal(product)" (productDelete)="delete($event)">&#xf00d;</i>
+                  <i
+                    class="fa fa-remove action-item"
+                    title="{{'app.delete' | translate:param}}"
+                    (click)="openDeleteModal(product)"
+                    (productDelete)="delete($event)"
+                    >&#xf00d;</i
+                  >
                 </a>
               </td>
             </tr>

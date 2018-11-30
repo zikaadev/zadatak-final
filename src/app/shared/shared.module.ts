@@ -12,4 +12,4 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   declarations: [LoaderComponent],
   exports: [LoaderComponent, SimpleNotificationsModule]
 })
-export class SharedModule { }
+export class SharedModule {}

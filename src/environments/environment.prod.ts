@@ -4,7 +4,7 @@ import env from './.env';
 export const environment = {
   production: true,
   version: env.npm_package_version + '-dev',
-  serverUrl: 'http://localhost:3000',
+  serverUrl: 'http://localhost:3000/products',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'sp-SP', 'de-DE']
 };
