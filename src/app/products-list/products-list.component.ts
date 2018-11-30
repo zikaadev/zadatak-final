@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { ProductsModalComponent } from '@app/products-list/products-modal/products-modal.component';
 
 @Component({
   selector: 'app-products-list',
@@ -43,20 +44,9 @@ export class ProductsListComponent implements OnInit {
     this.productService.getAllProducts().subscribe((data: any) => (this.products = data));
   }
 
-  // openProductModal(product: Product) {
-  //   const modalRef = this.modalService.open(ProductsModalComponent);
-  //   modalRef.componentInstance.selectedProduct = product;
-  // }
-
-  // openDeleteModal(product: Product) {
-  //   this.selectedProduct = product;
-  //   const modalRef = this.modalService.open(DeleteModalComponent);
-  //   modalRef.componentInstance.selectedProduct = product;
-  //   modalRef.componentInstance.deleteProduct.subscribe((res: any) => this.delete());
-  // }
-
-  delete() {
-    this.productService.deleteProduct(this.selectedProduct.id).subscribe((res: any) => this.getProducts());
+  openProductModal(product: Product) {
+    const modalRef = this.modalService.open(ProductsModalComponent);
+    modalRef.componentInstance.selectedProduct = product;
   }
 
   performFilter(filterBy: string): Product[] {

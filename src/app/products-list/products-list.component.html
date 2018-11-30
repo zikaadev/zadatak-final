@@ -5,7 +5,7 @@
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
         <br /><br />
-        <table (onConfirmDelete)="delete()">
+        <table>
           <thead>
             <tr>
               <th>{{ 'products.id' | translate: param }}</th>
@@ -20,7 +20,7 @@
             <tr *ngFor="let product of (products | findByName: searchText)">
               <td>{{ product.id }}</td>
               <td>
-                <a title="{{'app.view' | translate: param}}">
+                <a title="{{'app.view' | translate: param}}" (click)="openProductModal(product)">
                   <i aria-hidden="true"></i> <span>{{ product.title | uppercase }}</span></a
                 >
               </td>

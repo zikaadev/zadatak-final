@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsListComponent } from './products-list.component';
+import { ProductsModalComponent } from './products-modal/products-modal.component';
 import { SharedModule } from '../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '@app/core/pipes/pipes.module';
@@ -13,7 +14,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { ProductService } from '@app/administration/product.service';
 
 @NgModule({
-  declarations: [ProductsListComponent],
+  declarations: [ProductsListComponent, ProductsModalComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -25,6 +26,7 @@ import { ProductService } from '@app/administration/product.service';
     NgbModule.forRoot(),
     NgbModalModule
   ],
+  entryComponents: [ProductsModalComponent],
   providers: [FindByName, ProductService],
   exports: [TranslateModule]
 })
