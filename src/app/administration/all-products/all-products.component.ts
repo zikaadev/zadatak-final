@@ -67,6 +67,6 @@ export class AllProductsComponent implements OnInit {
   }
 
   setActiveProduct(product: Product) {
-    this.router.navigate(['/products/' + product.id]);
+    this.router.navigate(['/administration/product/' + product.id]);
   }
 }

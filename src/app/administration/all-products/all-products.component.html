@@ -4,7 +4,7 @@
       <div>
         {{ 'products.search' | translate: param }}:
         <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}" />
-        <button class="btn btn-primary left-space" routerLink="/products/new">
+        <button class="btn btn-primary left-space" routerLink="/administration/new-product">
           {{ 'app.add.product' | translate: param }}
         </button>
         <br /><br />

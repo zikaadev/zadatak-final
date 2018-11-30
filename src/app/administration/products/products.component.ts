@@ -65,14 +65,14 @@ export class ProductsComponent implements OnInit {
         ? this.selectedProduct.image
         : this.getImageName(this.selectedFile);
       this.productService.addProduct(this.selectedProduct).subscribe((res: any) => {
-        this.router.navigate(['/all-products']);
+        this.router.navigate(['/administration/all-products']);
       });
     } else {
       this.selectedProduct.image = this.selectedProduct.image
         ? this.selectedProduct.image
         : this.getImageName(this.selectedFile);
       this.productService.updateProduct(this.selectedProduct).subscribe((res: any) => {
-        this.router.navigate(['/all-products']);
+        this.router.navigate(['/administration/all-products']);
       });
     }
     this.setMode('new');

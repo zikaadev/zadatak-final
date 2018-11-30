@@ -4,11 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Route, extract, AuthenticationGuard } from '@app/core';
 import { ProductsListComponent } from './products-list.component';
 
-const routes: Routes = [
-  Route.withShell([
-    { path: 'products-list', component: ProductsListComponent, data: { title: extract('Products List') } }
-  ])
-];
+const routes: Routes = [{ path: '', component: ProductsListComponent, data: { title: extract('Products List') } }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

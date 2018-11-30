@@ -6,26 +6,29 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-  Route.withShell([
-    {
-      path: 'administration/products/new',
-      component: ProductsComponent,
-      data: { title: extract('New Product') },
-      canActivate: [AuthenticationGuard]
-    },
-    {
-      path: 'administration/products/:id',
-      component: ProductsComponent,
-      data: { title: extract('Update Product') },
-      canActivate: [AuthenticationGuard]
-    },
-    {
-      path: 'asdasda',
-      component: AllProductsComponent,
-      data: { title: extract('All Products') },
-      canActivate: [AuthenticationGuard]
-    }
-  ])
+  {
+    path: '',
+    redirectTo: 'all-products',
+    pathMatch: 'full'
+  },
+  {
+    path: 'new-product',
+    component: ProductsComponent,
+    data: { title: extract('New Product') },
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'product/:id',
+    component: ProductsComponent,
+    data: { title: extract('Update Product') },
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'all-products',
+    component: AllProductsComponent,
+    data: { title: extract('All Products') },
+    canActivate: [AuthenticationGuard]
+  }
 ];
 
 @NgModule({
