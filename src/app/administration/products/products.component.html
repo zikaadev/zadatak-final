@@ -54,14 +54,7 @@
     <div class="form-group">
       <label for="selectedProduct.image">{{ 'products.image' | translate: param }}</label
       ><br />
-      <!-- <input type="text" [(ngModel)]="selectedProduct.image" name="imageUrl" #imageUrl /> -->
       <input type="file" class="form-controll" (change)="onFileSelected($event)" name="image" #image />
-      <!--
-        <button class="btn btn-outline-dark" type="button" (click)="image.click()">{{ 'products.select.image' | translate: param }}</button>
-      -->
-      <!--
-        <button class="btn btn-outline-dark left-space" type="button" (click)="onUpload()">{{ 'products.upload.image' | translate: param }}</button>
-      -->
     </div>
     <div class="form-group">
       <button class="btn btn-outline-dark" type="button" (click)="cancel()">

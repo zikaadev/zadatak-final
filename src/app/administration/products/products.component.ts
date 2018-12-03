@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   fileToUpload: File;
   param = { value: 'world' };
   productsForm: FormGroup;
+  base64textString: any = [];
 
   constructor(
     private productService: ProductService,
@@ -44,33 +45,28 @@ export class ProductsComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
-    console.log(event);
-
-    const reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-      this.selectedFile = <File>event.target.files[0];
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+      this.selectedProduct.image = reader.result.toString();
     }
-
-    console.log('Image: ' + this.selectedProduct.image);
-    console.log('File:' + this.selectedFile);
   }
 
-  onUpload() {
-    this.productService.uploadImage(this.selectedFile).subscribe((res: any) => console.log(res));
+  handleReaderLoaded(event: any) {
+    this.base64textString.push('data:image/png;base64,' + btoa(event.target.result));
+    this.selectedFile = this.base64textString[0];
+    this.selectedProduct.image = this.base64textString[0];
   }
 
   save() {
+    this.selectedProduct.image = this.selectedProduct.image ? this.selectedProduct.image : this.selectedFile.name;
     if (this.mode === 'new') {
-      this.selectedProduct.image = this.selectedProduct.image
-        ? this.selectedProduct.image
-        : this.getImageName(this.selectedFile);
       this.productService.addProduct(this.selectedProduct).subscribe((res: any) => {
         this.router.navigate(['/administration/all-products']);
       });
     } else {
-      this.selectedProduct.image = this.selectedProduct.image
-        ? this.selectedProduct.image
-        : this.getImageName(this.selectedFile);
       this.productService.updateProduct(this.selectedProduct).subscribe((res: any) => {
         this.router.navigate(['/administration/all-products']);
       });
