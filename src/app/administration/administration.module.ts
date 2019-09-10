@@ -19,7 +19,6 @@ import { AdministrationRoutingModule } from './administration-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    CommonModule,
     FormsModule,
     TranslateModule,
     SimpleNotificationsModule,

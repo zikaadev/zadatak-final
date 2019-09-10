@@ -17,7 +17,7 @@ export class DeleteModalComponent {
 
   productDeleted(confirm: boolean) {
     this.deleteProduct.emit(true);
-    this.activeModal.close();
+    this.setCancel();
   }
 
   setCancel() {

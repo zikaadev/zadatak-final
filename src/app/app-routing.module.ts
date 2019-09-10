@@ -7,7 +7,8 @@ const routes: Routes = [
     // { path: 'home', loadChildren: 'app/home/home.module#HomeModule' },
     { path: 'about', loadChildren: 'app/about/about.module#AboutModule' },
     { path: 'products-list', loadChildren: 'app/products-list/products.module#ProductsModule' },
-    { path: 'administration', loadChildren: 'app/administration/administration.module#AdministrationModule' }
+    { path: 'administration', loadChildren: 'app/administration/administration.module#AdministrationModule' },
+    { path: 'services', loadChildren: 'app/services/services.module#ServicesModule' }
   ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

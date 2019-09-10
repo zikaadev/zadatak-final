@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PipesModule } from './core/pipes/pipes.module';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { ServicesComponent } from './services/services.component';
+import { ServicesModule } from './services/services.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,12 +39,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HomeModule,
     LoginModule,
     LoginModule,
     AppRoutingModule,
     PipesModule,
     HttpClientModule,
+    ServicesModule,
     SimpleNotificationsModule.forRoot(),
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],

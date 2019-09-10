@@ -4,57 +4,23 @@
   <form #productform="ngForm" novalidate>
     <div class="form-group">
       <label for="selectedProduct.title" class="control-label">{{ 'products.title' | translate: param }}</label>
-      <input
-        type="text"
-        class="form-control"
-        required
-        [(ngModel)]="selectedProduct.title"
-        name="title"
-        pattern="[A-Za-z0-9]{3,15}"
-        minlength="3"
-        maxlength="15"
-        #title="ngModel"
-      />
+      <input type="text" class="form-control" required [(ngModel)]="selectedProduct.title" name="title" pattern="[A-Za-z0-9]{3,15}" minlength="3" maxlength="15" #title="ngModel"  required />
     </div>
     <div class="form-group">
       <label for="selectedProduct.description">{{ 'products.description' | translate: param }}</label>
-      <input
-        type="text"
-        class="form-control"
-        required
-        [(ngModel)]="selectedProduct.description"
-        name="description"
-        #description
-      />
+      <input type="text" class="form-control" required [(ngModel)]="selectedProduct.description" name="description" #description required />
     </div>
     <div class="form-group">
       <label for="selectedProduct.price">{{ 'products.price' | translate: param }}</label>
-      <input
-        type="text"
-        class="form-control"
-        required
-        min="0"
-        [(ngModel)]="selectedProduct.price"
-        name="price"
-        #price
-      />
+      <input type="text" class="form-control" required min="0" [(ngModel)]="selectedProduct.price" name="price" #price required />
     </div>
     <div class="form-group">
       <label for="selectedProduct.quantity">{{ 'products.quantity' | translate: param }}</label>
-      <input
-        type="text"
-        class="form-control"
-        required
-        min="0"
-        [(ngModel)]="selectedProduct.quantity"
-        name="quantity"
-        #quantity
-      />
+      <input type="text" class="form-control" required min="0" [(ngModel)]="selectedProduct.quantity" name="quantity" #quantity required />
     </div>
     <div class="form-group">
-      <label for="selectedProduct.image">{{ 'products.image' | translate: param }}</label
-      ><br />
-      <input type="file" class="form-controll" (change)="onFileSelected($event)" name="image" #image />
+      <label for="selectedProduct.image">{{ 'products.image' | translate: param }}</label><br />
+      <input type="file" class="form-controll" (change)="onFileSelected($event)" name="image" #image required />
     </div>
     <div class="form-group">
       <button class="btn btn-outline-dark" type="button" (click)="cancel()">

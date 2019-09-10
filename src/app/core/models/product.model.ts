@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+// @Injectable()
 export class Product {
   public id: number;
   public title: string;
